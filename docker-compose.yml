@@ -1,0 +1,13 @@
+version: '3'
+services:
+  airflow:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./airflow:/root/airflow
+      - ./sandbox:/sandbox
+    ports:
+      - 8080:8080
+    command: airflow webserver
+    #privileged: true # uncoment if strace is needed
